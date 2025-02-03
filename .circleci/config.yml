@@ -3,7 +3,7 @@ version: 2.1
 executors:
   python-executor:
     docker:
-      - image: cimg/python:3.10  # Use Python 3.10 image
+      - image: cimg/python:3.10
 
 jobs:
   trade:
@@ -33,7 +33,7 @@ workflows:
   scheduled-trading:
     triggers:
       - schedule:
-          cron: "*/5 * * * *"  # Runs every 5 minutes
+          cron: "0,5,10,15,20,25,30,35,40,45,50,55 * * * *"  # Runs every 5 minutes
           filters:
             branches:
               only: main
