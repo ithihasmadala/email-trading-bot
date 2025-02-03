@@ -1,0 +1,41 @@
+version: 2.1
+
+executors:
+  python-executor:
+    docker:
+      - image: cimg/python:3.10  # Use Python 3.10 image
+
+jobs:
+  trade:
+    executor: python-executor
+    environment:
+      QUANTITY: ${QUANTITY}
+      TAKE_PROFIT: ${TAKE_PROFIT}
+      STOP_LOSS: ${STOP_LOSS}
+      TESTNET_URL: ${TESTNET_URL}
+      POLLING_INTERVAL: ${POLLING_INTERVAL}
+      APP_PASSWORD: ${APP_PASSWORD}
+      TESTNET_API_KEY: ${TESTNET_API_KEY}
+      TESTNET_API_SECRET: ${TESTNET_API_SECRET}
+      EMAIL_USERNAME: ${EMAIL_USERNAME}
+      EMAIL_SENDERS: ${EMAIL_SENDERS}
+
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: pip install -r requirements.txt
+      - run:
+          name: Run trading script
+          command: python3 email_listener.py
+
+workflows:
+  scheduled-trading:
+    triggers:
+      - schedule:
+          cron: "*/5 * * * *"  # Runs every 5 minutes
+          filters:
+            branches:
+              only: main
+    jobs:
+      - trade
