@@ -13,7 +13,7 @@ from retry import retry_on_failure
 # HMAC authentication with API key and secret
 KEY = os.getenv('TESTNET_API_KEY')
 SECRET = os.getenv('TESTNET_API_SECRET')
-QUANTITY = float(os.getenv('QUANTITY'))
+QUANTITY = os.getenv('QUANTITY')
 
 logging.info(f"QUANTITY: {QUANTITY}")
 
