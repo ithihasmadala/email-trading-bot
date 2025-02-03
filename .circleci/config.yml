@@ -39,3 +39,8 @@ workflows:
               only: main
     jobs:
       - trade
+
+    # Add a default workflow to run on commits
+  build-and-test:
+    jobs:
+      - trade
