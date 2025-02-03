@@ -8,18 +8,6 @@ executors:
 jobs:
   trade:
     executor: python-executor
-    environment:
-      QUANTITY: $QUANTITY
-      TAKE_PROFIT: $TAKE_PROFIT
-      STOP_LOSS: $STOP_LOSS
-      TESTNET_URL: $TESTNET_URL
-      POLLING_INTERVAL: $POLLING_INTERVAL
-      APP_PASSWORD: $APP_PASSWORD
-      TESTNET_API_KEY: $TESTNET_API_KEY
-      TESTNET_API_SECRET: $TESTNET_API_SECRET
-      EMAIL_USERNAME: $EMAIL_USERNAME
-      EMAIL_SENDERS: $EMAIL_SENDERS
-
     steps:
       - checkout
       - run:
