@@ -15,6 +15,8 @@ KEY = os.getenv('TESTNET_API_KEY')
 SECRET = os.getenv('TESTNET_API_SECRET')
 QUANTITY = float(os.getenv('QUANTITY'))
 
+logging.info(f"QUANTITY: {QUANTITY}")
+
 hmac_client = UMFutures(key=KEY, secret=SECRET, base_url=os.getenv('TESTNET_URL'))
 
 def parse_email_content(body):
