@@ -13,9 +13,7 @@ from retry import retry_on_failure
 # HMAC authentication with API key and secret
 KEY = os.getenv('TESTNET_API_KEY')
 SECRET = os.getenv('TESTNET_API_SECRET')
-QUANTITY = os.getenv('QUANTITY')
-
-logging.info(f"QUANTITY: {QUANTITY}")
+QUANTITY = float(os.getenv('QUANTITY'))
 
 hmac_client = UMFutures(key=KEY, secret=SECRET, base_url=os.getenv('TESTNET_URL'))
 
@@ -67,7 +65,7 @@ def calculate_quantity(symbol: str, usdt_amount: float) -> float:
 
 def request_order_on_binance(symbol, signal, scale):
     try:
-        quantity = calculate_quantity(symbol, os.getenv('QUANTITY') * scale)
+        quantity = calculate_quantity(symbol, QUANTITY * scale)
         
         response = hmac_client.new_order(
             symbol=symbol,
