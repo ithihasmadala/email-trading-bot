@@ -9,16 +9,16 @@ jobs:
   trade:
     executor: python-executor
     environment:
-      QUANTITY: << pipeline.parameters.QUANTITY >>
-      TAKE_PROFIT: << pipeline.parameters.TAKE_PROFIT >>
-      STOP_LOSS: << pipeline.parameters.STOP_LOSS >>
-      TESTNET_URL: << pipeline.parameters.TESTNET_URL >>
-      POLLING_INTERVAL: << pipeline.parameters.POLLING_INTERVAL >>
-      APP_PASSWORD: << pipeline.parameters.APP_PASSWORD >>
-      TESTNET_API_KEY: << pipeline.parameters.TESTNET_API_KEY >>
-      TESTNET_API_SECRET: << pipeline.parameters.TESTNET_API_SECRET >>
-      EMAIL_USERNAME: << pipeline.parameters.EMAIL_USERNAME >>
-      EMAIL_SENDERS: << pipeline.parameters.EMAIL_SENDERS >>
+      QUANTITY: ${QUANTITY}
+      TAKE_PROFIT: ${TAKE_PROFIT}
+      STOP_LOSS: ${STOP_LOSS}
+      TESTNET_URL: ${TESTNET_URL}
+      POLLING_INTERVAL: ${POLLING_INTERVAL}
+      APP_PASSWORD: ${APP_PASSWORD}
+      TESTNET_API_KEY: ${TESTNET_API_KEY}
+      TESTNET_API_SECRET: ${TESTNET_API_SECRET}
+      EMAIL_USERNAME: ${EMAIL_USERNAME}
+      EMAIL_SENDERS: ${EMAIL_SENDERS}
 
     steps:
       - checkout
